@@ -115,7 +115,7 @@ void initSN76489(struct s_sn76489 *p_sn76489, volatile unsigned char *p_dataPort
 /*** calculate freqDiv ***/
 uint16_t getSN76489_FreqDiv(uint32_t refClk, uint32_t voiceFreq)
 {
-  return (refClk/((unsigned)5 << voiceFreq)) & 0x03FF;
+  return (refClk/(voiceFreq << 5)) & 0x03FF;
 }
 
 /** SET YOUR DATA **/
